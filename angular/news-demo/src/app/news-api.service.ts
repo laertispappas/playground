@@ -16,4 +16,12 @@ export class NewsApiService {
       `${this.apiBaseUrl}/sources?language=en&apiKey=${NewsApiService.API_KEY}`
     );
   }
+
+  getArticles() {
+    return this.http.get(
+      `${this.apiBaseUrl}/top-headlines?sources=techcrunch&apiKey=${
+        NewsApiService.API_KEY
+      }`
+    );
+  }
 }
