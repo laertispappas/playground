@@ -23,4 +23,11 @@ export class AppComponent implements OnInit {
       .getSources()
       .subscribe(data => (this.sources = data["sources"]));
   }
+
+  searchArticles(source) {
+    console.log("selected source is: " + source);
+    this.newsapi
+      .getArticlesBySource(source)
+      .subscribe(data => (this.articles = data["articles"]));
+  }
 }
