@@ -7,5 +7,13 @@ import { HttpClient } from "@angular/common/http";
 export class NewsApiService {
   static readonly API_KEY = "94f93287be014d6db322a1449ef75978";
 
-  constructor(private httpClient: HttpClient) {}
+  readonly apiBaseUrl = "https://newsapi.org/v2";
+
+  constructor(private http: HttpClient) {}
+
+  getSources() {
+    return this.http.get(
+      `${this.apiBaseUrl}/sources?language=en&apiKey=${NewsApiService.API_KEY}`
+    );
+  }
 }
