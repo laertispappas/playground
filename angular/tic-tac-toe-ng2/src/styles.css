@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  background-color: #fff;
+  color: #fff;
+  font-family: 'Dosis', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  margin: 0px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+.flex-grid {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+
+@media (max-width: 400px) {
+  .flex-grid {
+    display: block;
+  }
+}
+
+.flex-grid-thirds {
+  display: flex;
+  justify-content: space-between;
+}
+.flex-grid-thirds .col {
+  width: 32%;
+}

@@ -1,0 +1,21 @@
+<div class="board-wrapper">
+  <div [@myAwesomeAnimation]="state" class="gameStatus">
+    {{gameStatusMessage}}
+  </div>
+  <div class="board" *ngFor="let row of [0,1,2]">
+    <app-cell *ngFor="let col of [0,1,2]"
+      [state]="squares[col+row*3]"
+      (click)="handleMove(col+row*3)">
+    </app-cell>
+  </div>
+  <button class="btn primary" (click)="restartGame()">New Game</button>
+  <button class="btn secondary" (click)="changeOpponent()">Play with {{ opponent == 'Player' ? 'Computer' : 'Player' }}</button>
+
+  <div class="flex-grid" *ngIf="opponent == 'Computer'">
+    <span>Choose algo</span>
+    <div class="col">
+      1
+    </div>
+    <div class="col">2</div>
+  </div>
+</div>

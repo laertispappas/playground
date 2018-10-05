@@ -1,0 +1,41 @@
+.board {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  background-color: #a45632;
+  color: #fff;
+}
+
+.gameStatus {
+  margin: 0px;
+  padding: 15px;
+  background-color: #34495e;
+  color: #fff;
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+.btn {
+  color: #fff;
+  border: 0px;
+  font-family: 'Dosis', Helvetica, sans-serif;
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 0px;
+  padding: 15px;
+  width: 100%;
+}
+
+.primary {
+  background-color: #34495e;
+}
+
+.secondary {
+  background-color: #983232;
+}
+
+.btn:hover {
+  background-color: #c1cdcd;
+  cursor: pointer;
+}
