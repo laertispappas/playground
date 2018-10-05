@@ -21,12 +21,42 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+
   @override
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<int> items = List.generate(10, (i) => i * 10);
+  List<int> _items = List.generate(30, (i) => i * 10);
+  ScrollController _scrollController = new ScrollController();
+  bool _loading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
+        _getMoreData();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  _getMoreData() async {
+    if (!_loading) {
+      setState(() => _loading = true);
+      List<int> newEntries = await _fakeRequest(_items.length, _items.length + 10);
+      setState(() {
+        _items.addAll(newEntries);
+        _loading = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,10 +65,35 @@ class _MyHomePageState extends State<MyHomePage> {
         title: new Text(widget.title),
       ),
       body: ListView.builder(
-        itemCount: items.length,
+        itemCount: _items.length,
         itemBuilder: (context, index) {
-          return ListTile(title: new Text("Number $index"));
-        }),
+          if (index == _items.length) {
+            return _buildProgressIndicator();
+          } else {
+            return ListTile(title: new Text("Number $index"));
+          }
+        },
+        controller: _scrollController,
+      ),
     );
+  }
+
+
+  Widget _buildProgressIndicator() {
+    return new Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: new Center(
+        child: new Opacity(
+          opacity: _loading ? 1.0 : 0.0,
+          child: new CircularProgressIndicator(),
+        ),
+      ),
+    );
+  }
+
+  Future<List<int>> _fakeRequest(int from, int to) async {
+    return Future.delayed(Duration(seconds: 2), () {
+      return List.generate(to - from, (i) => i + from);
+    });
   }
 }
