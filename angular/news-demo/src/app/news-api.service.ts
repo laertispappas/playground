@@ -24,4 +24,12 @@ export class NewsApiService {
       }`
     );
   }
+
+  getArticlesBySource(source: String) {
+    return this.http.get(
+      `${this.apiBaseUrl}/top-headlines?sources=${source}&apiKey=${
+        NewsApiService.API_KEY
+      }`
+    );
+  }
 }
