@@ -41,21 +41,31 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
-  }
-
   _getMoreData() async {
     if (!_loading) {
       setState(() => _loading = true);
-      List<int> newEntries = await _fakeRequest(_items.length, _items.length + 10);
+      List<int> newEntries = await _fakeRequest(_items.length, _items.length); //returns empty list
+      if (newEntries.isEmpty) {
+        double edge = 50.0;
+        double offsetFromBottom = _scrollController.position.maxScrollExtent - _scrollController.position.pixels;
+        if (offsetFromBottom < edge) {
+          _scrollController.animateTo(
+              _scrollController.offset - (edge -offsetFromBottom),
+              duration: new Duration(milliseconds: 500),
+              curve: Curves.easeOut);
+        }
+      }
       setState(() {
         _items.addAll(newEntries);
         _loading = false;
       });
     }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
   }
 
   @override
