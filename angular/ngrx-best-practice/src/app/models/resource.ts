@@ -1,4 +1,4 @@
 export class Resource {
-  id: number;
+  id?: number;
   parentId?: number;
 }
