@@ -14,22 +14,22 @@ const getIsLoading = (state: State): boolean => state.isLoading;
 
 const getUser = (state: State): any => state.user;
 
-export const selectMyFeatureState: MemoizedSelector<
+export const selectOtherFeatureState: MemoizedSelector<
   object,
   State
 > = createFeatureSelector<State>('otherFeature');
 
-export const selectMyFeatureError: MemoizedSelector<
+export const selectOtherFeatureError: MemoizedSelector<
   object,
   any
-> = createSelector(selectMyFeatureState, getError);
+> = createSelector(selectOtherFeatureState, getError);
 
-export const selectMyFeatureIsLoading: MemoizedSelector<
+export const selectOtherFeatureIsLoading: MemoizedSelector<
   object,
   boolean
-> = createSelector(selectMyFeatureState, getIsLoading);
+> = createSelector(selectOtherFeatureState, getIsLoading);
 
-export const selectMyFeatureUser: MemoizedSelector<
+export const selectOtherFeatureUser: MemoizedSelector<
   object,
   MyModel
-> = createSelector(selectMyFeatureState, getUser);
+> = createSelector(selectOtherFeatureState, getUser);
