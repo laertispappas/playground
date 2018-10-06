@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { MyFeatureStoreModule } from './my-feature-store/my-feature-store.module';
-import { OtherFeatureStoreModule } from './other-feature-store/other-feature-store.module';
+import { MyFeatureStoreModule } from './my-feature-store/';
+import { OtherFeatureStoreModule } from './other-feature-store/';
 
 @NgModule({
   imports: [
