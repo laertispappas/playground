@@ -1,0 +1,12 @@
+{
+  // Controls if the editor should automatically format the line after typing
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "window.zoomLevel": 2,
+  "workbench.colorTheme": "Solarized Light",
+  // You can auto formate any files based on extensions type.
+  "breadcrumbs.enabled": true,
+  "prettier.singleQuote": true,
+}
