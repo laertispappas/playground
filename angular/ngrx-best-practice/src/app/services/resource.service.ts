@@ -33,9 +33,14 @@ export class ResourceService<T extends Resource> {
       .pipe(map((data: any) => this.serializer.fromJson(data) as T));
   }
 
-  list(queryOptions: QueryBuilder): Observable<T[]> {
+  list(queryOptions?: QueryBuilder): Observable<T[]> {
+    const url =
+      (queryOptions &&
+        `${this.url}/${this.endpoint}?${queryOptions.toQueryString()}`) ||
+      `${this.url}/${this.endpoint}`;
+
     return this.httpClient
-      .get(`${this.url}/${this.endpoint}?${queryOptions.toQueryString()}`)
+      .get(url)
       .pipe(map((data: any) => this.convertData(data.items)));
   }
 
