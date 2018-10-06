@@ -1,3 +1,3 @@
-export class MyModel {
-  id: number;
-}
+import { Resource } from './resource';
+
+export class MyModel extends Resource {}

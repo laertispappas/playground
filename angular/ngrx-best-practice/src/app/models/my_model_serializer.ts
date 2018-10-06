@@ -1,6 +1,7 @@
 import { MyModel } from './my_model';
+import { Serializer } from './serializer';
 
-export class MyModelSerializer {
+export class MyModelSerializer implements Serializer {
   fromJson(json: any): MyModel {
     const instance = new MyModel();
     instance.id = json.id;
