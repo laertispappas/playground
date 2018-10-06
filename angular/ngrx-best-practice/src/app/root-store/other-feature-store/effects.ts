@@ -8,7 +8,7 @@ import { AuthService } from '../../services/auth.service';
 import { Session } from '../../models';
 
 @Injectable()
-export class MyFeatureStoreEffects {
+export class OtherFeatureStoreEffects {
   constructor(private authService: AuthService, private actions$: Actions) {}
 
   @Effect()
