@@ -1,0 +1,17 @@
+{
+  "name": "mean-todos",
+  "version": "1.0.0",
+  "description": "Express TODO list backend server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Laertis Pappas",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "ejs": "*",
+    "express": "*",
+    "mongojs": "*"
+  }
+}

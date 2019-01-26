@@ -1,0 +1,66 @@
+<div class="jumbotron">
+      <div class="container">
+        <h1>Find A Movie</h1>
+        <p>Search for a movie using the form below</p>
+        <form (submit)="searchMovies()">
+          <input type="text" class="form-control" [(ngModel)]="searchStr" name="searchStr">
+          <br>
+          <button class="btn btn-primary btn-lg">Find</button>  
+        </form>
+      </div>
+    </div>
+    
+
+<div *ngIf="searchRes" class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Search Results</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+        <div *ngFor="let movie of searchRes;let i=index" class="col-md-2">
+            <div *ngIf="i < 18">
+            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+            <h4>{{movie.title}}</h4>
+            <p>{{movie.release_date}}</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Popular Movies</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+        <div *ngFor="let movie of popularList;let i=index" class="col-md-2">
+            <div *ngIf="i < 6">
+            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+            <h4>{{movie.title}}</h4>
+            <p>{{movie.release_date}}</p>
+            <p><a class="btn btn-default" routerLink="/movie/{{movie.id}}">View details &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">In Theaters</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+        <div *ngFor="let movie of theatersList;let i=index" class="col-md-2">
+            <div *ngIf="i < 6">
+            <img *ngIf="movie.poster_path" class="thumbnail" src="http://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+            <h4>{{movie.title}}</h4>
+            <p>{{movie.release_date}}</p>
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

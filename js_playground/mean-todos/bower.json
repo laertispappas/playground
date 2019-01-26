@@ -1,0 +1,20 @@
+{
+  "name": "mean-todos",
+  "description": "Simple todos app",
+  "main": "server.js",
+  "authors": [
+    "Laertis Pappas"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/laertispappas/ng2_playground",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

@@ -1,0 +1,21 @@
+
+<ion-navbar *navbar>
+  <ion-title>
+    Workout Details
+  </ion-title>
+</ion-navbar>
+
+<ion-content class="workout-details">
+    <ion-card>
+        <ion-card-header>
+            <strong>{{workout.title}}</strong>
+        </ion-card-header>
+        <ion-card-content>
+            <p><strong>Type: </strong> {{workout.type}}</p>
+            <hr>
+            {{workout.note}}
+            <br><br><br>
+            <button (click)="deleteWorkout(workout._id.$oid)" danger block>Delete Workout</button>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

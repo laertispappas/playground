@@ -1,0 +1,10 @@
+
+<div class="container">
+  <new-operation (addOperation)="addOperation($event)"></new-operation>
+  <!-- utilizing the async pipe to handle all subscribing to observables --> 
+  <operations-list [operations]="operations | async" 
+                   (deleteOperation)="deleteOperation($event)" 
+                   (incrementOperation)="incrementOperation($event)" 
+                   (decrementOperation)="decrementOperation($event)">
+  </operations-list>
+</div>
